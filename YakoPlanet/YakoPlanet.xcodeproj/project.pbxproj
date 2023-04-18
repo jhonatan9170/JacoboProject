@@ -16,6 +16,7 @@
 		9421405129EC8D1200B96CE8 /* InformationAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9421405029EC8D1200B96CE8 /* InformationAppViewController.swift */; };
 		9421405329EC8EAB00B96CE8 /* Movies.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9421405229EC8EAB00B96CE8 /* Movies.storyboard */; };
 		9421405529EC8EFA00B96CE8 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9421405429EC8EFA00B96CE8 /* MoviesViewController.swift */; };
+		9458E7B629EE1FFE004787A1 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9458E7B529EE1FFE004787A1 /* MovieDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		9421405029EC8D1200B96CE8 /* InformationAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationAppViewController.swift; sourceTree = "<group>"; };
 		9421405229EC8EAB00B96CE8 /* Movies.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Movies.storyboard; sourceTree = "<group>"; };
 		9421405429EC8EFA00B96CE8 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
+		9458E7B529EE1FFE004787A1 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				9421405029EC8D1200B96CE8 /* InformationAppViewController.swift */,
 				9421405429EC8EFA00B96CE8 /* MoviesViewController.swift */,
+				9458E7B529EE1FFE004787A1 /* MovieDetailViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9421403629EC7C9E00B96CE8 /* AppDelegate.swift in Sources */,
+				9458E7B629EE1FFE004787A1 /* MovieDetailViewController.swift in Sources */,
 				9421403829EC7C9E00B96CE8 /* SceneDelegate.swift in Sources */,
 				9421405129EC8D1200B96CE8 /* InformationAppViewController.swift in Sources */,
 				9421405529EC8EFA00B96CE8 /* MoviesViewController.swift in Sources */,

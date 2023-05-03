@@ -201,7 +201,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Informacion" id="twa-IQ-kea">
-                        <imageReference key="image" image="info.square.fill" catalog="system" renderingMode="original"/>
+                        <imageReference key="image" image="ellipsis" catalog="system" renderingMode="original"/>
                         <color key="badgeColor" systemColor="systemGrayColor"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -212,7 +212,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="info.square.fill" catalog="system" width="128" height="114"/>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="logoInApp" width="341" height="341"/>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

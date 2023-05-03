@@ -1,5 +1,5 @@
 //
-//  Movie.swift
+//  MovieDTO.swift
 //  YakoPlanet
 //
 //  Created by Jacobo Ramirez on 22/04/23.
@@ -36,22 +36,20 @@ import Foundation
 //    "total_results": 759181
 //}
 
-struct PageMovie{
+struct PageMovieDTO: Decodable{
     
     let page: Int?
-    let results: Movie?
+    let results: [MovieDTO]?
 }
 
-struct Movie{
+struct MovieDTO: Decodable{
     
     let id: Int?
-    let poster_path: String
+    let poster_path: String?
     let release_date: String?
     let title: String?
     let overview: String?
     
-    var urlImage: String {
-        return "https://www.themoviedb.org/t/p/w1280" + self.poster_path
-    }
+    
     
 }

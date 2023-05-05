@@ -52,14 +52,7 @@ extension MoviesViewController: UITableViewDataSource{
         
         xCell.lblTitle.text = moviesShow.title
         xCell.lblReleaseDate.text = moviesShow.release_date
-        
-        let urld = URL(string: moviesToShow[indexPath.row].urlImage)!
-                
-                if let data = try? Data(contentsOf:urld) {
-                        // Create Image and Update Image View
-                    xCell.imgMovie.image = UIImage(data: data)
-                }
-        
+        xCell.imgMovie.load(urlString: moviesToShow[indexPath.row].urlImage)
         return xCell
     }
     

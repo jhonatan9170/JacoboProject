@@ -97,7 +97,7 @@
                     <tabBarItem key="tabBarItem" title="Peliculas" image="house.fill" catalog="system" id="c7t-kB-Ag7">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" title="PELICULAS" id="zEd-Fi-bUQ"/>
+                    <navigationItem key="navigationItem" title="PELICULAS" largeTitleDisplayMode="always" id="zEd-Fi-bUQ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tblvMovies" destination="G31-wf-nee" id="Jb4-al-HT5"/>

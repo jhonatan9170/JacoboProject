@@ -20,19 +20,19 @@ struct Movie{
     }
 
     var releaseDateWithFormat: String {
-        return releaseDate?.convertDateToString(format: "dd MMMMM YYYY") ?? "Proximamente..."
+        return releaseDate?.convertDateToString(format: "dd MMMM YYYY") ?? "Proximamente..."
     }
     
     init(dto : MovieDTO) {
-        self.id = dto.id ?? 0
-        self.posterPath = dto.poster_path ?? ""
-        self.releaseDate = dto.release_date?.convertStringToDateWithFormat("yyyy-MM-dd")
-        self.title = dto.title ?? ""
-        self.overview = dto.overview ?? ""
+        self.id             = dto.id ?? 0
+        self.posterPath     = dto.poster_path ?? ""
+        self.releaseDate    = dto.release_date?.convertStringToDateWithFormat("yyyy-MM-dd")
+        self.title          = dto.title ?? ""
+        self.overview       = dto.overview ?? ""
     }
 }
 
-
+// MARK: Conversions
 extension String{
     func convertStringToDateWithFormat(_ format: String) -> Date? {
         let fadeFormatter = DateFormatter()
@@ -49,8 +49,7 @@ extension Date{
     }
 }
 
-
-
+// MARK: MoviesDto to Array
 extension Array where Element == MovieDTO{
     
     var toMovies: [Movie]{
@@ -63,7 +62,6 @@ extension Array where Element == MovieDTO{
         }
         return arrayMovies
         }
-    
 }
 
 //class asd {
@@ -82,4 +80,3 @@ extension Array where Element == MovieDTO{
 //        }
 //
 //}
-

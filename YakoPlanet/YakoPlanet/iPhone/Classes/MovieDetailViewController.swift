@@ -9,7 +9,6 @@ import UIKit
 
 class MovieDetailViewController: UIViewController {
 
-    
     @IBOutlet weak var imgMovie:UIImageView!
     @IBOutlet weak var lblTitle:UILabel!
     @IBOutlet weak var lblReleaseDate:UILabel!
@@ -23,34 +22,24 @@ class MovieDetailViewController: UIViewController {
     var objMovieSelected : Movie!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.showDataMovie()
         
-
-//        self.lblTitle.text = lblTitleSelected
-//        self.lblReleaseDate.text = lblReleaseDateSelected
-//        self.lblSummary.text = lblSummarySelected
-//        self.imgMovie.image = imgSelected
     }
     
     func showDataMovie(){
-        self.lblTitle.text = objMovieSelected.title
-        self.lblReleaseDate.text = objMovieSelected.releaseDateWithFormat
-        self.lblSummary.text = objMovieSelected.overview
+        self.lblTitle.text          = objMovieSelected.title
+        self.lblReleaseDate.text    = objMovieSelected.releaseDateWithFormat
+        self.lblSummary.text        = objMovieSelected.overview
         
-        let urlId = URL(string: objMovieSelected.urlImage)!
-        
-        if let data = try? Data(contentsOf: urlId){
-            self.imgMovie.image = UIImage(data: data)
-                }
-        
-        
-    }
-    
-    
+        self.imgMovie.load(urlString: objMovieSelected.urlImage)
 
-    
+//        let urlId = URL(string: objMovieSelected.urlImage)!
+//
+//        if let data = try? Data(contentsOf: urlId){
+//            self.imgMovie.image = UIImage(data: data)
+//                }
+    }
     
 }

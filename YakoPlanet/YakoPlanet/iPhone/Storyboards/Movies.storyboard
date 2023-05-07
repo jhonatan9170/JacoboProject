@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="G31-wf-nee" userLabel="TableVieww">
-                                <rect key="frame" x="0.0" y="92" width="414" height="804"/>
+                                <rect key="frame" x="0.0" y="148" width="414" height="748"/>
                                 <color key="backgroundColor" red="0.58823531870000001" green="0.78823530669999997" blue="0.72941178080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexBackgroundColor" red="0.58823531870000001" green="0.78823530669999997" blue="0.72941178080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
@@ -84,14 +84,25 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="5DX-xk-pp4"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="2wm-Ld-Vfs">
+                                <rect key="frame" x="0.0" y="92" width="414" height="56"/>
+                                <color key="barTintColor" red="0.72549019609999998" green="0.92941176469999998" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="8Pz-ao-Ahf"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.33725490200000002" green="0.61568627450000002" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="G31-wf-nee" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="CYi-iu-VGd"/>
                             <constraint firstItem="G31-wf-nee" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="LZY-dx-4KQ"/>
-                            <constraint firstItem="G31-wf-nee" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="QLh-tA-ES9"/>
+                            <constraint firstItem="2wm-Ld-Vfs" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="SOv-gI-DbP"/>
                             <constraint firstAttribute="bottom" secondItem="G31-wf-nee" secondAttribute="bottom" id="ZVS-t7-gLz"/>
+                            <constraint firstItem="2wm-Ld-Vfs" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="kVd-Wj-BTf"/>
+                            <constraint firstItem="G31-wf-nee" firstAttribute="top" secondItem="2wm-Ld-Vfs" secondAttribute="bottom" id="n3G-mH-sLm"/>
+                            <constraint firstItem="2wm-Ld-Vfs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="oaa-oj-RBr"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Peliculas" image="house.fill" catalog="system" id="c7t-kB-Ag7">
@@ -100,6 +111,7 @@
                     <navigationItem key="navigationItem" title="PELICULAS" largeTitleDisplayMode="always" id="zEd-Fi-bUQ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="searchBarMovies" destination="2wm-Ld-Vfs" id="rtj-iK-dd9"/>
                         <outlet property="tblvMovies" destination="G31-wf-nee" id="Jb4-al-HT5"/>
                         <segue destination="orM-t1-59I" kind="show" identifier="MovieDetailViewController" id="zLC-cu-kQi"/>
                     </connections>
@@ -147,7 +159,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exampleImageMovie" translatesAutoresizingMaskIntoConstraints="NO" id="8EH-Fq-ZtO">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8EH-Fq-ZtO">
                                                 <rect key="frame" x="111" y="15" width="200" height="300"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="G7J-mQ-EbP"/>
@@ -231,9 +243,10 @@
                         <color key="badgeColor" systemColor="systemGray6Color"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="12R-fN-P46">
+                    <navigationBar key="navigationBar" contentMode="center" id="12R-fN-P46">
                         <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="standardAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -246,7 +259,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="exampleImageMovie" width="360" height="450"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

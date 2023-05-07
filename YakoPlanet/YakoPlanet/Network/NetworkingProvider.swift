@@ -14,8 +14,6 @@ struct NetworkingProvider{
     private let kConstanteOk = 200...299
     private let kApiKey = "176de15e8c8523a92ff640f432966c9c"
     
-    
-    //success: @escaping (_ movie: Movie) -> (), failure: @escaping (_ error: Error?) -> ()
     func getAllMovies(success: @escaping (_ arrayMovieDTO: [MovieDTO]) -> (), failure: @escaping (_ error: Error?) -> ()){
         
         let urlService = kBaseURL + kApiKey
@@ -36,6 +34,7 @@ struct NetworkingProvider{
                 
         }
     }
+    
 }
 
 

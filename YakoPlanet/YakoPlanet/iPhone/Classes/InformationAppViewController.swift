@@ -12,7 +12,6 @@ class InformationAppViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
     }
     
 }

@@ -137,8 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				9421404B29EC7F6100B96CE8 /* TabBar.storyboard */,
-				9421404D29EC804300B96CE8 /* Information.storyboard */,
 				9421405229EC8EAB00B96CE8 /* Movies.storyboard */,
+				9421404D29EC804300B96CE8 /* Information.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -146,12 +146,12 @@
 		9421404F29EC8CB000B96CE8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				9421405029EC8D1200B96CE8 /* InformationAppViewController.swift */,
+				94A7878C2A04BAA900912344 /* SplashScreenLottieViewController.swift */,
 				9421405429EC8EFA00B96CE8 /* MoviesViewController.swift */,
 				9458E7B529EE1FFE004787A1 /* MovieDetailViewController.swift */,
 				941BB5AA29F483570047B365 /* MovieTableViewCell.swift */,
+				9421405029EC8D1200B96CE8 /* InformationAppViewController.swift */,
 				94A7878A2A04BA8500912344 /* TabBarViewController.swift */,
-				94A7878C2A04BAA900912344 /* SplashScreenLottieViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";

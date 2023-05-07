@@ -34,12 +34,6 @@ class MovieDetailViewController: UIViewController {
         self.lblSummary.text        = objMovieSelected.overview
         
         self.imgMovie.load(urlString: objMovieSelected.urlImage)
-
-//        let urlId = URL(string: objMovieSelected.urlImage)!
-//
-//        if let data = try? Data(contentsOf: urlId){
-//            self.imgMovie.image = UIImage(data: data)
-//                }
     }
     
 }

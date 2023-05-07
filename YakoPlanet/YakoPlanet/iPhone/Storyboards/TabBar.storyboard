@@ -89,4 +89,7 @@
             <point key="canvasLocation" x="265" y="39"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="IaU-nM-lAr"/>
+    </designables>
 </document>

@@ -10,21 +10,28 @@ import UIKit
 class MoviesViewController: UIViewController {
 
     @IBOutlet weak var tblvMovies: UITableView!
+    @IBOutlet weak var searchBarMovies: UISearchBar!
     
-    var movieToShow = [Movie]()
     var networkingProvider = NetworkingProvider()
+    
+    var moviesToShow = [Movie]()
+    var filteredMovies = [Movie]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBarMovies.delegate = self
+        
         self.getAllMovies()
-        self.tabBarController?.navigationItem.title = "nav bar title"
+        
     }
     
     
     func getAllMovies(){
         self.networkingProvider.getAllMovies { arrayMovieDTO in
-            self.movieToShow = arrayMovieDTO.toMovies
+            self.moviesToShow = arrayMovieDTO.toMovies
+            self.filteredMovies = self.moviesToShow
             self.tblvMovies.reloadData()
                         
         } failure: { error in
@@ -39,7 +46,6 @@ class MoviesViewController: UIViewController {
         }
     }
     
-
 }
 
 // MARK: - Data Source
@@ -50,25 +56,18 @@ extension MoviesViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieToShow.count
+        return filteredMovies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let xCell = tableView.dequeueReusableCell(withIdentifier: "baseCell", for: indexPath) as! MovieTableViewCell
         
-        let moviesShow = movieToShow[indexPath.row]
+        let moviesShow = filteredMovies[indexPath.row]
         
         xCell.lblTitle.text         = moviesShow.title
         xCell.lblReleaseDate.text   = moviesShow.releaseDateWithFormat
         xCell.imgMovie.load(urlString: moviesShow.urlImage)
-        
-//        let urld = URL(string: movieToShow[indexPath.row].urlImage)!
-//
-//                if let data = try? Data(contentsOf:urld) {
-//                        // Create Image and Update Image View
-//                    xCell.imgMovie.image = UIImage(data: data)
-//                }
 
         return xCell
     }
@@ -93,9 +92,30 @@ extension MoviesViewController: UITableViewDelegate{
 //        self.navigationController?.pushViewController(detailMoview!, animated: false)
 //
         
-        let movieSelected = self.movieToShow[indexPath.row]
-        //print(movieSelected.title)
+        let movieSelected = self.filteredMovies[indexPath.row]
+
         self.performSegue(withIdentifier: "MovieDetailViewController", sender: movieSelected)
     }
 }
 
+// MARK: - SearchBar Delegate
+extension MoviesViewController: UISearchBarDelegate{
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchText.isEmpty {
+            filteredMovies = moviesToShow
+        } else {
+            filteredMovies = moviesToShow.filter { $0.title.lowercased().contains(searchText.lowercased()) }
+        }
+        tblvMovies.reloadData()
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        filteredMovies = moviesToShow
+        tblvMovies.reloadData()
+    }
+    
+}

@@ -30,7 +30,9 @@ struct Movie{
         self.title          = dto.title ?? ""
         self.overview       = dto.overview ?? ""
     }
+    
 }
+
 
 // MARK: Conversions
 extension String{

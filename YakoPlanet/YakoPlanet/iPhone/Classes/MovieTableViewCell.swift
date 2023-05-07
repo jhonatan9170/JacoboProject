@@ -13,15 +13,21 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var lblTitle:UILabel!
     @IBOutlet weak var lblReleaseDate:UILabel!
     
+    
+    // Aun sin usar
+    func updateDataMovie( objMovie: Movie){
+        //self.lblTitle.text = objMovie.title
+        //self. lblReleaseDate.text = objMovie.releaseDate.
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
     }
 
 }

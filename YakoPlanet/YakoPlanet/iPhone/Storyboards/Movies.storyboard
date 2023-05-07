@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="G31-wf-nee" userLabel="TableVieww">
-                                <rect key="frame" x="0.0" y="148" width="414" height="748"/>
+                                <rect key="frame" x="0.0" y="188" width="414" height="708"/>
                                 <color key="backgroundColor" red="0.58823531870000001" green="0.78823530669999997" blue="0.72941178080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexBackgroundColor" red="0.58823531870000001" green="0.78823530669999997" blue="0.72941178080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
@@ -85,30 +85,42 @@
                                 </connections>
                             </tableView>
                             <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="2wm-Ld-Vfs">
-                                <rect key="frame" x="0.0" y="92" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="132" width="414" height="56"/>
                                 <color key="barTintColor" red="0.72549019609999998" green="0.92941176469999998" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="8Pz-ao-Ahf"/>
                                 </connections>
                             </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PELICULAS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIp-ig-3js">
+                                <rect key="frame" x="0.0" y="92" width="414" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="TFb-mv-MYB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.33725490200000002" green="0.61568627450000002" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="RIp-ig-3js" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="6mG-7D-tal"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="RIp-ig-3js" secondAttribute="trailing" id="B2O-Gi-Sg7"/>
                             <constraint firstItem="G31-wf-nee" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="CYi-iu-VGd"/>
                             <constraint firstItem="G31-wf-nee" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="LZY-dx-4KQ"/>
                             <constraint firstItem="2wm-Ld-Vfs" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="SOv-gI-DbP"/>
+                            <constraint firstItem="2wm-Ld-Vfs" firstAttribute="top" secondItem="RIp-ig-3js" secondAttribute="bottom" id="XyQ-gS-KAa"/>
                             <constraint firstAttribute="bottom" secondItem="G31-wf-nee" secondAttribute="bottom" id="ZVS-t7-gLz"/>
-                            <constraint firstItem="2wm-Ld-Vfs" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="kVd-Wj-BTf"/>
                             <constraint firstItem="G31-wf-nee" firstAttribute="top" secondItem="2wm-Ld-Vfs" secondAttribute="bottom" id="n3G-mH-sLm"/>
                             <constraint firstItem="2wm-Ld-Vfs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="oaa-oj-RBr"/>
+                            <constraint firstItem="RIp-ig-3js" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="wPv-VD-glg"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Peliculas" image="house.fill" catalog="system" id="c7t-kB-Ag7">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" title="PELICULAS" largeTitleDisplayMode="always" id="zEd-Fi-bUQ"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="zEd-Fi-bUQ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBarMovies" destination="2wm-Ld-Vfs" id="rtj-iK-dd9"/>

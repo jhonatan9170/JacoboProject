@@ -21,5 +21,10 @@ struct MovieDTO: Decodable{
     let release_date: String?
     let title: String?
     let overview: String?
+//    let adult: String?
+//    let original_language: String?
+//    let original_title: String?
+//    let vote_average: Double?
+//    let vote_count: Int?
     
 }

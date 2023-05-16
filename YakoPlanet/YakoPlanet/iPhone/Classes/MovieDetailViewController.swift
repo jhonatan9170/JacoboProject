@@ -9,18 +9,13 @@ import UIKit
 
 class MovieDetailViewController: UIViewController {
 
-    @IBOutlet weak var imgMovie:UIImageView!
-    @IBOutlet weak var lblTitle:UILabel!
-    @IBOutlet weak var lblReleaseDate:UILabel!
-    @IBOutlet weak var lblSummary:UILabel!
+    @IBOutlet weak var MovieImage:UIImageView!
+    @IBOutlet weak var TitleLbl:UILabel!
+    @IBOutlet weak var ReleaseDateLbl:UILabel!
+    @IBOutlet weak var DescriptionLbl:UILabel!
     
-    var imgSelected = UIImage()
-    var lblTitleSelected = ""
-    var lblReleaseDateSelected = ""
-    var lblSummarySelected = ""
-    
-    var objMovieSelected : Movie!
-    
+    //var movieSelected : Movie!
+    var movieDetailViewModel: MovieDetailViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +24,15 @@ class MovieDetailViewController: UIViewController {
     }
     
     func showDataMovie(){
-        self.lblTitle.text          = objMovieSelected.title
-        self.lblReleaseDate.text    = objMovieSelected.releaseDateWithFormat
-        self.lblSummary.text        = objMovieSelected.overview
+        self.TitleLbl.text          = movieDetailViewModel.title
+        self.ReleaseDateLbl.text    = movieDetailViewModel.releaseDate
+        self.DescriptionLbl.text    = movieDetailViewModel.description
         
-        self.imgMovie.load(urlString: objMovieSelected.urlImage)
+        self.MovieImage.load(urlString: movieDetailViewModel.imageURL)
     }
     
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
 }

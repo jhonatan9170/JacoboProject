@@ -8,33 +8,43 @@
 import Foundation
 import Alamofire
 
-struct NetworkingProvider{
-    
-    private let kBaseURL = "https://api.themoviedb.org/3/movie/popular?api_key="
-    private let kConstanteOk = 200...299
-    private let kApiKey = "176de15e8c8523a92ff640f432966c9c"
-    
-    func getAllMovies(success: @escaping (_ arrayMovieDTO: [MovieDTO]) -> (), failure: @escaping (_ error: Error?) -> ()){
-        
-        let urlService = kBaseURL + kApiKey
-        let requestGetAll = AF.request(urlService, method: .get)
-        
-        requestGetAll.validate(statusCode: kConstanteOk).response
-            {response in
-                        
-            guard let data = response.data else {
-                print("Ocurrio un error con el API")
-                //success([])
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            let pageMovies = try? decoder.decode(PageMovieDTO.self, from: data)
-                success(pageMovies?.results ?? [])
-                
-        }
-    }
-    
+protocol NetworkingProviderDelegate: AnyObject {
+    func didFetchMovies(_ movies: [MovieDTO])
+    func didFail(withError error: Error?)
 }
 
-
+class NetworkingProvider {
+    
+    weak var delegate: NetworkingProviderDelegate?
+    
+    private let baseURL = "https://api.themoviedb.org/3/movie/popular?api_key="
+    private let constantOk = 200...299
+    private let apiKey = "176de15e8c8523a92ff640f432966c9c"
+    
+    func getAllMovies(){
+        let urlService = baseURL + apiKey
+        let requestGetAll = AF.request(urlService, method: .get)
+        
+        requestGetAll.validate(statusCode: constantOk).response { [weak self] response in
+            guard let self = self else { return }
+            
+            switch response.result {
+            case .success(let data):
+                guard let jsonData = data else {
+                    self.delegate?.didFail(withError: nil)
+                    return
+                }
+                
+                let decoder = JSONDecoder()
+                if let pageMovies = try? decoder.decode(PageMovieDTO.self, from: jsonData) {
+                    self.delegate?.didFetchMovies(pageMovies.results ?? [])
+                } else {
+                    self.delegate?.didFail(withError: nil)
+                }
+                
+            case .failure(let error):
+                self.delegate?.didFail(withError: error)
+            }
+        }
+    }
+}

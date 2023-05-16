@@ -13,7 +13,7 @@ struct Movie{
     let posterPath: String
     let releaseDate: Date?
     let title: String
-    let overview: String
+    let description: String
     
     var urlImage: String {
         return "https://www.themoviedb.org/t/p/w1280" + self.posterPath
@@ -28,11 +28,10 @@ struct Movie{
         self.posterPath     = dto.poster_path ?? ""
         self.releaseDate    = dto.release_date?.convertStringToDateWithFormat("yyyy-MM-dd")
         self.title          = dto.title ?? ""
-        self.overview       = dto.overview ?? ""
+        self.description    = dto.overview ?? ""
     }
     
 }
-
 
 // MARK: Conversions
 extension String{
@@ -55,30 +54,11 @@ extension Date{
 extension Array where Element == MovieDTO{
     
     var toMovies: [Movie]{
-        // tengo mi array de DTOs
-        // lo quiero convertir en un array de Peliculas
-        
+
         var arrayMovies = [Movie]()
-        for dto in self { // Recorro elemento x elemento
+        for dto in self { 
             arrayMovies.append(Movie(dto: dto))
         }
         return arrayMovies
         }
 }
-
-//class asd {
-//    func asdasd() -> [Movie] {
-//
-//        // tengo mi array de DTOs
-//        let arrayDTO = [MovieDTO]()
-//        // lo quiero convertir en un array de Peliculas
-//
-//
-//        var arrayMovies = [Movie]()
-//        for dto in arrayDTO { // Recorro elemento x elemento
-//            arrayMovies.append(Movie(dto: dto))
-//        }
-//        return arrayMovies
-//        }
-//
-//}

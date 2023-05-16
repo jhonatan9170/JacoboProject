@@ -9,43 +9,32 @@ import UIKit
 
 class MoviesViewController: UIViewController {
 
-    @IBOutlet weak var tblvMovies: UITableView!
-    @IBOutlet weak var searchBarMovies: UISearchBar!
+    @IBOutlet weak var MoviesTable: UITableView!
+    @IBOutlet weak var MoviesSearchBar: UISearchBar!
     
-    var networkingProvider = NetworkingProvider()
-    
-    var moviesToShow = [Movie]()
-    var filteredMovies = [Movie]()
+    var moviesViewModel: MoviesViewModel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchBarMovies.delegate = self
+        MoviesSearchBar.delegate = self
         
-        self.getAllMovies()
+        let networkingProvider = NetworkingProvider()
+        moviesViewModel = MoviesViewModel(networkingProvider: networkingProvider)
+        moviesViewModel.delegate = self
         
-    }
-    
-    
-    func getAllMovies(){
-        self.networkingProvider.getAllMovies { arrayMovieDTO in
-            self.moviesToShow = arrayMovieDTO.toMovies
-            self.filteredMovies = self.moviesToShow
-            self.tblvMovies.reloadData()
-                        
-        } failure: { error in
-            
-        }
+        moviesViewModel.getAllMovies()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        if let controller = segue.destination as? MovieDetailViewController, let objMovie =  sender as? Movie{
-            controller.objMovieSelected = objMovie
+        if let controller = segue.destination as? MovieDetailViewController, let objMovie =  sender as? Movie {
+            let movieDetailViewModel = MovieDetailViewModel(movie: objMovie)
+            controller.movieDetailViewModel = movieDetailViewModel
         }
     }
-    
+
 }
 
 // MARK: - Data Source
@@ -56,14 +45,14 @@ extension MoviesViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredMovies.count
+        return moviesViewModel.filteredMovies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let xCell = tableView.dequeueReusableCell(withIdentifier: "baseCell", for: indexPath) as! MovieTableViewCell
         
-        let moviesShow = filteredMovies[indexPath.row]
+        let moviesShow = moviesViewModel.filteredMovies[indexPath.row]
         
         xCell.lblTitle.text         = moviesShow.title
         xCell.lblReleaseDate.text   = moviesShow.releaseDateWithFormat
@@ -79,23 +68,21 @@ extension MoviesViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        let detailMoview = storyboard?.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController
-//
-//        let movieSelected = self.movieToShow[indexPath.row]
-//
-//        //detailMoview?.imgMovie.image = movieSelected.urlImage
-//
-//        detailMoview?.lblTitle.text = movieSelected.title
-//        detailMoview?.lblReleaseDate.text = movieSelected.releaseDateWithFormat
-//        detailMoview?.lblSummary.text = movieSelected.overview
-//
-//        self.navigationController?.pushViewController(detailMoview!, animated: false)
-//
+        let movieSelected = self.moviesViewModel.filteredMovies[indexPath.row]
+                showMovieDetail(movie: movieSelected)
         
-        let movieSelected = self.filteredMovies[indexPath.row]
-
-        self.performSegue(withIdentifier: "MovieDetailViewController", sender: movieSelected)
+        
     }
+    
+    func showMovieDetail(movie: Movie) {
+            let storyboard = UIStoryboard(name: "Movies", bundle: nil)
+            if let movieDetailViewController = storyboard.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController {
+                let movieDetailViewModel = MovieDetailViewModel(movie: movie)
+                movieDetailViewController.movieDetailViewModel = movieDetailViewModel
+                movieDetailViewController.modalPresentationStyle = .fullScreen
+                present(movieDetailViewController, animated: true, completion: nil)
+            }
+        }
 }
 
 // MARK: - SearchBar Delegate
@@ -104,18 +91,31 @@ extension MoviesViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchText.isEmpty {
-            filteredMovies = moviesToShow
+            moviesViewModel.filteredMovies = moviesViewModel.movies
         } else {
-            filteredMovies = moviesToShow.filter { $0.title.lowercased().contains(searchText.lowercased()) }
+            moviesViewModel.filteredMovies = moviesViewModel.movies.filter { $0.title.lowercased().contains(searchText.lowercased()) }
         }
-        tblvMovies.reloadData()
+        MoviesTable.reloadData()
         
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
-        filteredMovies = moviesToShow
-        tblvMovies.reloadData()
+        moviesViewModel.filteredMovies = moviesViewModel.moviesToShow
+        MoviesTable.reloadData()
+    }
+    
+}
+// MARK: - MoviesViewModel-Delegate
+extension MoviesViewController: MoviesViewModelDelegate{
+    func didFail(withError error: Error?) {
+        print(error ?? "Error")
+    }
+    
+    func didUpdateMovies(_ movies: [Movie]) {
+        moviesViewModel.movies = movies
+        moviesViewModel.filteredMovies = movies
+        MoviesTable.reloadData()
     }
     
 }

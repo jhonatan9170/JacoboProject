@@ -16,22 +16,10 @@ class SplashScreenLottieViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        //setUpAnimation()
+        
         showAnimation()
     }
-    
-//    func setUpAnimation(){
-//        animationView.animation     = LottieAnimation.named("lTmovie")
-//        animationView.frame         = CGRect(x: 0, y: 0, width: 200, height: 200)
-//        animationView.center        = view.center
-//        animationView.contentMode   = .scaleAspectFit
-//        animationView.loopMode      = .loop
-//        animationView.play()
-//        view.addSubview(animationView)
-//        
-//        Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(showMoviesVC), userInfo: nil, repeats: false)
-//    }
-    
+
     func showAnimation(){
         imageLottie.contentMode = .scaleAspectFit
         imageLottie.loopMode    = .loop
@@ -39,7 +27,6 @@ class SplashScreenLottieViewController: UIViewController {
         
         Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(showMoviesVC), userInfo: nil, repeats: false)
     }
-    
     
     @objc func showMoviesVC(){
         let storyboard = UIStoryboard(name: "TabBar", bundle: nil)

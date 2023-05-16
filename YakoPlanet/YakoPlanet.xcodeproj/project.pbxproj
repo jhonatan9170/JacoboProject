@@ -21,7 +21,6 @@
 		9421405529EC8EFA00B96CE8 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9421405429EC8EFA00B96CE8 /* MoviesViewController.swift */; };
 		9458E7B629EE1FFE004787A1 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9458E7B529EE1FFE004787A1 /* MovieDetailViewController.swift */; };
 		9498849729FC77BA002E38A4 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9498849629FC77BA002E38A4 /* Movie.swift */; };
-		9498849A29FD9558002E38A4 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9498849929FD9558002E38A4 /* DateManager.swift */; };
 		94A787882A04B9D600912344 /* lTmovieTheatre.json in Resources */ = {isa = PBXBuildFile; fileRef = 94A787862A04B9D600912344 /* lTmovieTheatre.json */; };
 		94A787892A04B9D600912344 /* lTmovie.json in Resources */ = {isa = PBXBuildFile; fileRef = 94A787872A04B9D600912344 /* lTmovie.json */; };
 		94A7878B2A04BA8500912344 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7878A2A04BA8500912344 /* TabBarViewController.swift */; };
@@ -51,7 +50,6 @@
 		9421405429EC8EFA00B96CE8 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		9458E7B529EE1FFE004787A1 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		9498849629FC77BA002E38A4 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		9498849929FD9558002E38A4 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		94A787862A04B9D600912344 /* lTmovieTheatre.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lTmovieTheatre.json; sourceTree = "<group>"; };
 		94A787872A04B9D600912344 /* lTmovie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lTmovie.json; sourceTree = "<group>"; };
 		94A7878A2A04BA8500912344 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -170,7 +168,6 @@
 		9498849829FD94DB002E38A4 /* General */ = {
 			isa = PBXGroup;
 			children = (
-				9498849929FD9558002E38A4 /* DateManager.swift */,
 				94A7878E2A06A1B800912344 /* Extensions.swift */,
 			);
 			path = General;
@@ -354,7 +351,6 @@
 			files = (
 				94A7878D2A04BAA900912344 /* SplashScreenLottieViewController.swift in Sources */,
 				9421403629EC7C9E00B96CE8 /* AppDelegate.swift in Sources */,
-				9498849A29FD9558002E38A4 /* DateManager.swift in Sources */,
 				941BB5A729F46F4D0047B365 /* NetworkingProvider.swift in Sources */,
 				9498849729FC77BA002E38A4 /* Movie.swift in Sources */,
 				94A7878B2A04BA8500912344 /* TabBarViewController.swift in Sources */,

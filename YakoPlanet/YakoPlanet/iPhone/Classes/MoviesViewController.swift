@@ -12,11 +12,6 @@ class MoviesViewController: UIViewController {
     @IBOutlet weak var MoviesTable: UITableView!
     @IBOutlet weak var MoviesSearchBar: UISearchBar!
     
-    //var networkingProvider = NetworkingProvider()
-    
-//    var moviesToShow = [Movie]()
-//    var filteredMovies = [Movie]()
-    
     var moviesViewModel: MoviesViewModel!
     
     
@@ -32,22 +27,6 @@ class MoviesViewController: UIViewController {
         moviesViewModel.getAllMovies()
     }
     
-//    func getAllMovies(){
-//        viewModel.getAllMovies()
-//
-//    }
-    
-//    func getAllMovies(){
-//        self.networkingProvider.getAllMovies { arrayMovieDTO in
-//            self.moviesViewModel.moviesToShow = arrayMovieDTO.toMovies
-//            self.moviesViewModel.filteredMovies = self.moviesViewModel.moviesToShow
-//            self.MoviesTable.reloadData()
-//
-//        } failure: { error in
-//
-//        }
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if let controller = segue.destination as? MovieDetailViewController, let objMovie =  sender as? Movie {
@@ -56,7 +35,6 @@ class MoviesViewController: UIViewController {
         }
     }
 
-    
 }
 
 // MARK: - Data Source

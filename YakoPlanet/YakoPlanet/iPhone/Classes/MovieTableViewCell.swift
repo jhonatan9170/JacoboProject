@@ -13,13 +13,6 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var lblTitle:UILabel!
     @IBOutlet weak var lblReleaseDate:UILabel!
     
-    
-    // Aun sin usar
-    func updateDataMovie( objMovie: Movie){
-        //self.lblTitle.text = objMovie.title
-        //self. lblReleaseDate.text = objMovie.releaseDate.
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         

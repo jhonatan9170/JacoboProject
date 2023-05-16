@@ -14,11 +14,11 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var ReleaseDateLbl:UILabel!
     @IBOutlet weak var DescriptionLbl:UILabel!
     
-    //var movieSelected : Movie!
     var movieDetailViewModel: MovieDetailViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.showDataMovie()
         
     }
@@ -30,7 +30,6 @@ class MovieDetailViewController: UIViewController {
         
         self.MovieImage.load(urlString: movieDetailViewModel.imageURL)
     }
-    
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)

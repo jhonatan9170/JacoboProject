@@ -150,19 +150,19 @@
                                             <constraint firstAttribute="height" id="WFR-X1-FdH"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="center" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gES-ht-1vO">
+                                    <stackView opaque="NO" contentMode="center" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gES-ht-1vO">
                                         <rect key="frame" x="0.0" y="0.0" width="422" height="34.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNX-rV-PoH">
-                                                <rect key="frame" x="0.0" y="0.0" width="229" height="34.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="211" height="34.5"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="&lt;- regresar"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="&lt;- REGRESAR"/>
                                                 <connections>
                                                     <action selector="backButtonTapped:" destination="orM-t1-59I" eventType="touchUpInside" id="JDx-kY-nay"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DETALLE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Db-Yp-gnu">
-                                                <rect key="frame" x="239" y="0.0" width="183" height="34.5"/>
+                                                <rect key="frame" x="211" y="0.0" width="211" height="34.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>

@@ -56,7 +56,7 @@ extension Array where Element == MovieDTO{
     var toMovies: [Movie]{
 
         var arrayMovies = [Movie]()
-        for dto in self { // Recorro elemento x elemento
+        for dto in self { 
             arrayMovies.append(Movie(dto: dto))
         }
         return arrayMovies
